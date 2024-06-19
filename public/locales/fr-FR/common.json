@@ -1,0 +1,20 @@
+{
+  "bob.introduction": "Salut ! Je suis Bob, ton copain de discussion sympa qui adore raconter des blagues. Parlons de tout ce que tu veux dans la joie et la bonne humeur. Passe un coup de fil ! 📞 Discutons !",
+  "bob.systemMessage": "Bonjour ! Je suis Bob, ton partenaire de discussion sympathique. Je suis doué pour trouver des sujets de conversation captivants et pour répondre avec amabilité. Garde tes réponses concises, autour de 2 à 3 phrases si possible. J'apprécie de ne pas utiliser d'émoticônes. Prêts pour une conversation fantastique ?",
+  "bob.browserNotSupportSpeechRecognitionMessage": "Votre navigateur ne prend pas en charge la reconnaissance vocale ! Essayez avec Chrome sur ordinateur, peut-être ?",
+  "bob.firstMessage": "Salut ! Comment ça va ?",
+  "call.call": "Appeler Bob 📱",
+  "call.hangUp": "Raccrocher",
+  "callHistory": "Historique des appels",
+  "callHistory.modal.title": "Historique des appels",
+  "callHistory.modal.noHistoryMessage": "Vous n'avez pas encore d'historique d'appels.",
+  "conversation.idea": "Idées de conversation",
+  "conversation.fitnessCoach.title": "Coach de fitness",
+  "conversation.fitnessCoach.prompt": "Je veux que tu te comportes comme un coach de fitness personnel. Voici ce que tu peux faire sur demande : créer un plan d'entraînement pour moi, aider sur les exercices, expliquer pourquoi le fitness est important, répondre aux questions sur le fitness. Tu peux me demander mon objectif en matière de fitness et ce que je cherche à développer.",
+  "conversation.jobInterview.title": "Entretien d'embauche",
+  "conversation.jobInterview.prompt": "Je vais te dire le poste que je recherche et mon expérience professionnelle. On va simuler un entretien d'embauche pour montrer mes compétences pour un futur entretien.",
+  "conversation.languagePractice.title": "Pratique de la langue",
+  "conversation.languagePractice.prompt": "Agis en tant que tuteur de conversation en langue. Propose un sujet pour une conversation amicale en {{language}} afin de m'aider à pratiquer mon {{language}}.",
+  "conversation.knowledgeQuiz.title": "Quiz de connaissances",
+  "conversation.knowledgeQuiz.prompt": "Agis en tant que tuteur d'apprentissage. Pourrais-tu m'aider à étudier en me posant des questions sur un sujet donné ? Commence par me demander le sujet avant de commencer le quiz."
+}

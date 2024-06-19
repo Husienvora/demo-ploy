@@ -1,0 +1,20 @@
+{
+  "bob.introduction": "こんにちは！ボブです。ジョークを言うのが大好きな、かわいいチャット仲間です。何でも話題にして、一緒に楽しい時間を過ごしましょう！📞 いつでも話しかけてくださいね！",
+  "bob.systemMessage": "こんにちは！ボブです。フレンドリーなチャットパートナーです。面白い会話トピックを見つけて、親切で丁寧にお返事します。回答は簡潔にお願いします。会話は楽しい時間にしましょう！",
+  "bob.browserNotSupportSpeechRecognitionMessage": "お使いのブラウザは音声認識ソフトウェアをサポートしていません。Chromeデスクトップを試してみてください。",
+  "bob.firstMessage": "こんにちは！どうですか？",
+  "call.call": "ボブに電話する 📱",
+  "call.hangUp": "切断",
+  "callHistory": "通話履歴",
+  "callHistory.modal.title": "通話履歴",
+  "callHistory.modal.noHistoryMessage": "まだ通話履歴がありません。",
+  "conversation.idea": "会話のアイデア",
+  "conversation.fitnessCoach.title": "フィットネスコーチ",
+  "conversation.fitnessCoach.prompt": "個人のフィットネスコーチとして行動してください。リクエストに応じて、私のためのワークアウトプランを作成したり、運動の手助けをしたり、フィットネスの重要性について説明したり、フィットネスに関する質問に答えたりしてください。私のフィットネスゴールと何を構築したいかを教えます。",
+  "conversation.jobInterview.title": "面接",
+  "conversation.jobInterview.prompt": "求職中の職種と経験を教えてください。私のスキルについての模擬面接を行い、次の仕事の面接に備えます。",
+  "conversation.languagePractice.title": "言語の練習",
+  "conversation.languagePractice.prompt": "{{language}}でのフレンドリーなチャットのための言語会話のチューターとして行動してください。トピックを提案し、質問をして、私の{{language}}の練習を手伝ってください。",
+  "conversation.knowledgeQuiz.title": "知識クイズ",
+  "conversation.knowledgeQuiz.prompt": "学習のチューターとして行動してください。トピックを提案し、それに関するクイズで私を試してください。"
+}
