@@ -31,7 +31,7 @@ export default async function handler(req: any, res: any) {
   try {
     const audio = await client.generate({
       voice: 'Rachel',
-      model_id: 'eleven_turbo_v2',
+      model_id: 'eleven_multilingual_v2',
       text,
     });
 

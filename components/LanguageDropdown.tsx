@@ -45,11 +45,11 @@ const languageOptions: MenuProps['items'] = [
   {
     type: 'divider',
   },
-  {
-    label: '日本語',
-    icon: '🇯🇵',
-    key: 'ja-JP',
-  },
+  // {
+  //   label: '日本語',
+  //   icon: '🇯🇵',
+  //   key: 'ja-JP',
+  // },
 ];
 
 function LanguageDropdown() {

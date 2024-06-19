@@ -6,21 +6,29 @@ export async function getChatGptAnswer(messagesWithSender: { message: string; se
 
   const chatGptApiFormattedMessages = messagesWithSender.map(messageObject => {
     return {
-      role: messageObject.sender === 'ChatGPT' ? 'model' : 'user',
+      role: messageObject.sender === 'ChatGPT' ? 'model' : 'user' || 'system',
       parts: [{ text: messageObject.message }],
     };
   });
 
   const systemMessageToSetChatGptBehaviour = {
-    role: 'system',
+    role: 'model',
     parts: [{ text: i18n?.t('bob.systemMessage') }],
   };
+  let usermessage =
+    chatGptApiFormattedMessages[chatGptApiFormattedMessages.length - 1].parts[0].text;
+  chatGptApiFormattedMessages[
+    chatGptApiFormattedMessages.length - 1
+  ].parts[0].text = `translate "${usermessage}" to ja-JP if it is already in ja-JP then translate it to ${i18n?.language} , return the tranlsation in the output and nothing else`;
 
   const chatGptApiMessages = [
-    // systemMessageToSetChatGptBehaviour, // The system message DEFINES the logic of our chatGPT
+    systemMessageToSetChatGptBehaviour, // The system message DEFINES the logic of our chatGPT
     ...chatGptApiFormattedMessages, // The messages from our chat with ChatGPT
   ];
 
+  // console.log(
+  //   (chatGptApiFormattedMessages[chatGptApiFormattedMessages.length - 1].parts[0].text = '')
+  // );
   try {
     const response = await fetch(`/api/chat/message`, {
       method: METHODS.POST,
