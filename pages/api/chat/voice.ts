@@ -1,9 +1,7 @@
 import { ElevenLabsClient } from 'elevenlabs';
-import { createWriteStream } from 'fs';
-import { v4 as uuid } from 'uuid';
 import { promisify } from 'util';
 import { pipeline } from 'stream';
-import path from 'path';
+import { Readable } from 'stream';
 
 const pipelineAsync = promisify(pipeline);
 let key: any = process.env.REACT_APP_ELEVENLABS;
@@ -37,15 +35,23 @@ export default async function handler(req: any, res: any) {
       text,
     });
 
-    const fileName = `${uuid()}.mp3`;
-    const filePath = path.resolve('./public', fileName);
-    const fileStream = createWriteStream(filePath);
+    // Convert the audio stream to a buffer
+    const audioBuffer = await streamToBuffer(audio);
 
-    await pipelineAsync(audio, fileStream);
-
-    return res.status(200).json({ fileName });
+    // Send the buffer as response
+    res.setHeader('Content-Type', 'audio/mpeg');
+    res.status(200).send(audioBuffer);
   } catch (error) {
     console.error('Error generating audio:', error);
     return res.status(500).json({ message: 'Error generating audio' });
   }
+}
+
+// Function to convert a readable stream to buffer
+async function streamToBuffer(stream: Readable): Promise<Buffer> {
+  const chunks: Uint8Array[] = [];
+  for await (const chunk of stream) {
+    chunks.push(chunk);
+  }
+  return Buffer.concat(chunks);
 }

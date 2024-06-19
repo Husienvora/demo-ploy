@@ -95,7 +95,6 @@ const CallManager: React.FC<CallManagerProps> = ({ children }) => {
       const utterance = new SpeechSynthesisUtterance(
         t('bob.browserNotSupportSpeechRecognitionMessage')
       );
-
       return;
     }
 
@@ -112,22 +111,20 @@ const CallManager: React.FC<CallManagerProps> = ({ children }) => {
         throw new Error('Failed to generate audio');
       }
 
-      const { fileName } = await response.json();
-      const audio = new Audio(`/${fileName}`);
+      const audioBuffer = await response.arrayBuffer();
+      // @ts-ignore
+      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+      const audioSource = audioContext.createBufferSource();
 
-      audio.onplay = handleChatbotSpeechStart;
-      audio.onended = () => {
-        handleChatbotSpeechEnd();
-        // Delete the file after playback
-        const response = fetch('/api/fsprocess/delete', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ audioUrl: `./public/${fileName}` }), // Replace with your actual audio file URL
-        });
-      };
-      audio.play();
+      audioContext.decodeAudioData(audioBuffer, buffer => {
+        audioSource.buffer = buffer;
+        audioSource.connect(audioContext.destination);
+        audioSource.onended = () => {
+          handleChatbotSpeechEnd();
+        };
+        audioSource.start();
+        handleChatbotSpeechStart();
+      });
     } catch (error) {
       console.error('Error generating audio:', error);
     }
